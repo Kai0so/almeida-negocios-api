@@ -5,9 +5,9 @@ import authRoutes from "./src/features/auth/routes/index.js";
 import imovelRoutes from "./src/features/imovel/routes/index.js";
 
 import mongoose from "mongoose";
-
-const MONGO_URI =
-  `mongodb://${process.env.mongo_db_user}:${process.env.mongo_db_pass}@${process.env.mongo_db_host}:${process.env.mongo_db_port}`; // TODO: Em produção, use variável de ambiente
+import dotenv from 'dotenv';
+dotenv.config();
+const MONGO_URI = `mongodb://${process.env.mongo_db_user}:${process.env.mongo_db_pass}@${process.env.mongo_db_host}:${process.env.mongo_db_port}`; // TODO: Em produção, use variável de ambiente
 
 mongoose.connect(MONGO_URI, { dbName: "almeida-negocios" })
 .then(() => {
