@@ -7,7 +7,7 @@ import imovelRoutes from "./src/features/imovel/routes/index.js";
 import mongoose from "mongoose";
 
 const MONGO_URI =
-  "mongodb://mongo:VdGXfqEhrpCsmDJznvQowdHsamwGQiae@caboose.proxy.rlwy.net:22189"; // TODO: Em produção, use variável de ambiente
+  `mongodb://${process.env.mongo_db_user}:${process.env.mongo_db_pass}@${process.env.mongo_db_host}:${process.env.mongo_db_port}`; // TODO: Em produção, use variável de ambiente
 
 mongoose.connect(MONGO_URI, { dbName: "almeida-negocios" })
 .then(() => {
