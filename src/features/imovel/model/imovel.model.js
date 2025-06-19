@@ -1,18 +1,42 @@
 import mongoose from 'mongoose';
 
 const ImovelSchema = new mongoose.Schema({
-  id: { type: String, required: true, unique: true },
-  titulo: { type: String, required: true },
-  descricaoResumida: { type: String, required: true },
-  preco: { type: String, required: true },
-  tipo: { type: String, required: true },
-  finalidade: { type: String, required: true },
-  imagens: [{ type: String, required: true }],
-  localizacao: { type: String, required: true },
-  contato: {
-    whatsapp: { type: String, required: true },
-    email: { type: String, required: true }
-  }
+  id: String,
+  banner: String,
+  rentPrice: Number,
+  area: Number,
+  bedrooms: Number,
+  totalCost: Number,
+  forSale: Boolean,
+  forRent: Boolean,
+  isPrimaryMarket: Boolean,
+  salePrice: Number,
+  parkingSpots: Number,
+  condoIptu: Number,
+  address: {
+    address: String,
+    city: String
+  },
+  regionName: String,
+  neighbourhood: String,
+  type: String,
+  photos: [
+    {
+      url: String,
+      subtitle: String
+    }
+  ],
+  visitsUnavailable: Boolean,
+  listingTags: [String],
+  yield: Number,
+  yieldStrategy: String,
+  categories: [String],
+  bathrooms: Number,
+  isFurnished: Boolean,
+  installations: [String],
+  amenities: [String],
+  shortRentDescription: String,
+  shortSaleDescription: String
 });
 
 export default mongoose.model('imoveis', ImovelSchema);
